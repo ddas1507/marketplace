@@ -17,26 +17,26 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Diones Admin',
                 'username' => 'dionesadmin',
-                'email' => 'dionesadmin@gmail.com',
+                'email' => 'admin@admin.com',
                 'role' => 'admin',
                 'status' => 'active',
-                'password' => bcrypt('diones123**')
+                'password' => bcrypt('admin123')
             ],
             [
-                'name' => 'Elaine Vendor',
-                'username' => 'elainevendor',
-                'email' => 'elaine@gmail.com',
+                'name' => 'Diones Vendor',
+                'username' => 'dionesvendor',
+                'email' => 'vendor@vendor.com',
                 'role' => 'vendor',
                 'status' => 'active',
-                'password' => bcrypt('elaine123**')
+                'password' => bcrypt('vendor123')
             ],
             [
-                'name' => 'Nicole User',
-                'username' => 'nicoleuser',
-                'email' => 'nicole@gmail.com',
+                'name' => 'Diones User',
+                'username' => 'dionesuser',
+                'email' => 'user@user.com',
                 'role' => 'user',
                 'status' => 'active',
-                'password' => bcrypt('nicole123**')
+                'password' => bcrypt('user123')
             ]
         ]);
     }
