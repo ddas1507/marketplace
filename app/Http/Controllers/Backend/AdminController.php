@@ -20,6 +20,11 @@ class AdminController extends Controller
         return view('admin.auth.login');
     }
 
+    public function forgotPassword()
+    {
+        return view('admin.auth.forgot-password');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
