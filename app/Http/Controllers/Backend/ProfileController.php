@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 
 class ProfileController extends Controller
 {
@@ -56,9 +58,27 @@ class ProfileController extends Controller
         $request->validate([
             'name' => ['required', 'max:100'],
             'email' => ['required', 'email', 'unique:users,email,' . Auth::user()->id],
+            'image' => ['nullable', 'image', 'max:2048', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         $user = Auth::user();
+
+        if ($request->hasFile('image')) {
+
+            //verifica se existe a imagem e apaga
+
+            if (File::exists(public_path($user->image))){
+                File::delete(public_path($user->image));
+            }
+
+            $image = $request->image;
+            $imageName = rand() . '-sadd-' . $image->getClientOriginalName();
+            $image->move(public_path('uploads'), $imageName);
+
+            $path = '/uploads/' . $imageName;
+            $user->image = $path;
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();

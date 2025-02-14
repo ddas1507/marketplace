@@ -19,14 +19,29 @@
                             <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
                         <div class="card">
-                            <form action="{{ route('admin.profile.update') }}" method="post" class="needs-validation">
+                            <form action="{{ route('admin.profile.update') }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="card-header">
                                     <h4>Atualizar Perfil</h4>
                                 </div>
                                 <div class="card-body">
+
                                     <div class="row">
+
+                                        <div class="col-md-12 col-12">
+                                            @if(Auth::user()->image != null)
+                                                <img src="{{ asset(Auth::user()->image) }}" class="img-thumbnail rounded-circle mr-1" title="{{ Auth::user()->name }}" alt="{{ Auth::user()->name }}" style="width: 80px; height: auto; object-fit: cover;">
+                                            @else
+                                                <img src="{{ asset('backend/assets/img/avatar/avatar-1.png') }}" class="img-thumbnail rounded-circle mr-1" title="{{ Auth::user()->name }}" alt="{{ Auth::user()->name }}" style="width: 80px; height: auto; object-fit: cover;">
+                                            @endif
+                                        </div>
+                                        <div class="form-group col-md-12 col-12">
+
+                                            <label>Foto de Perfil</label>
+                                            <input type="file" class="form-control" name="image">
+                                        </div>
+
                                         <div class="form-group col-md-6 col-12">
                                             <label>Nome</label>
                                             <input type="text" class="form-control" name="name" value="{{ Auth::user()->name}}" required placeholder="Digite o seu nome">
@@ -34,6 +49,7 @@
                                                 Please fill in the first name
                                             </div>
                                         </div>
+
                                         <div class="form-group col-md-6 col-12">
                                             <label>Email</label>
                                             <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" required placeholder="Digite o seu email">
