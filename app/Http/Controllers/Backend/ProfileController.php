@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Post;
+use App\Http\Requests\PostRequest;
+use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,7 +86,24 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        return redirect()->route('admin.profile')->with('success', 'Perfil atualizado com sucesso.');
+        flash()->success('Seu perfil foi atualizado!',[],'Sucesso');
+        return redirect()->route('admin.profile');
+    }
+
+    public function updatePassword(Request $request){
+        //dd($request->all());
+        $request->validate([
+            'current_password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required', 'string', 'min:8']
+        ]);
+
+        $request->user()->update([
+            'password' => bcrypt($request->password)
+        ]);
+
+        flash()->success('Sua senha foi alterada!',[],'Sucesso');
+        return redirect()->route('admin.profile');
     }
 
     /**

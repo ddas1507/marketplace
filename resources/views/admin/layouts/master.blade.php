@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/components.css') }}">
 
+    <!-- ToaStr CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
+
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -79,6 +85,21 @@
 
 <!-- Template JS File -->
 <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
-<script src="{{ asset('backend/assets/js/custom.js') }}"></script>
+
+<!-- ToaStr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        // toastr.options.closeMethod = 'fadeOut';
+        // toastr.options.closeDuration = 300;
+        // toastr.options.closeEasing = 'swing';
+        // toastr.options.closeButton = true;
+
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                toastr.error("{{$error}}");
+            @endforeach
+        @endif
+    </script>
 </body>
 </html>
