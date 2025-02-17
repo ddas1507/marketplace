@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Diones Admin',
                 'username' => 'dionesadmin',
-                'email' => 'admin@admin.com',
+                'email' => 'ddas1507@gmail.com',
                 'role' => 'admin',
                 'status' => 'active',
                 'password' => bcrypt('admin123')

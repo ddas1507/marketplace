@@ -9,10 +9,10 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Painel de Controle</li>
             <li class="dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Painel de Controle</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Configurações do site</span></a>
                 <ul class="dropdown-menu">
-                    <li class=active><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                    <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
+                    <li class=active><a class="nav-link" href="{{ route('slider.index') }}">Slide Destaque</a></li>
+{{--                    <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>--}}
                 </ul>
             </li>
             <li class="menu-header">Starter</li>
