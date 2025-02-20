@@ -22,22 +22,6 @@ class UserSeeder extends Seeder
                 'status' => 'active',
                 'password' => bcrypt('admin123')
             ],
-            [
-                'name' => 'Diones Vendor',
-                'username' => 'dionesvendor',
-                'email' => 'vendor@vendor.com',
-                'role' => 'vendor',
-                'status' => 'active',
-                'password' => bcrypt('vendor123')
-            ],
-            [
-                'name' => 'Diones User',
-                'username' => 'dionesuser',
-                'email' => 'user@user.com',
-                'role' => 'user',
-                'status' => 'active',
-                'password' => bcrypt('user123')
-            ]
         ]);
     }
 }

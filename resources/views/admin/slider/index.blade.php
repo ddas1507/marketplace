@@ -26,15 +26,32 @@
                             </div>
 
                             <div class="card-body">
-                                @foreach($sliders as $slider)
-                                    <li>{{ $slider->slide_image }}</li>
-                                    <li>{{ $slider->slide_text }}</li>
-                                    <li>{{ $slider->slide_subtext }}</li>
-                                    <li>{{ $slider->slide_price }}</li>
-                                    <li>{{ $slider->slide_link }}</li>
-                                    <li>{{ $slider->slide_ordem }}</li>
-                                    <li>{{ $slider->status }}</li>
-                                @endforeach
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <td>id</td>
+                                        <td>image</td>
+                                        <td>text</td>
+                                        <td>subtext</td>
+                                        <td>price</td>
+                                        <td>link</td>
+                                        <td>ordem</td>
+                                        <td>status</td>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($sliders as $slider)
+                                        <tr>
+                                            <td>{{ $slider->id }}</td>
+                                            <td>{{ $slider->slide_image }}</td>
+                                            <td>{{ $slider->slide_text }}</td>
+                                            <td>{{ $slider->slide_subtext }}</td>
+                                            <td>{{ $slider->slide_price }}</td>
+                                            <td>{{ $slider->slide_link }}</td>
+                                            <td>{{ $slider->slide_ordem }}</td>
+                                            <td>{{ $slider->status }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

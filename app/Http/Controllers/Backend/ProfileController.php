@@ -75,10 +75,10 @@ class ProfileController extends Controller
             }
 
             $image = $request->image;
-            $imageName = rand() . '-sadd-' . $image->getClientOriginalName();
-            $image->move(public_path('uploads'), $imageName);
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('backend/assets/img/profile'), $imageName);
 
-            $path = '/uploads/' . $imageName;
+            $path = '/backend/assets/img/profile/' . $imageName;
             $user->image = $path;
         }
 
