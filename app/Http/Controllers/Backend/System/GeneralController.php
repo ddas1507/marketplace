@@ -23,9 +23,9 @@ class GeneralController extends Controller
     {
         $request->validate([
             'store_logo' => ['nullable', 'image', 'max:2048', 'mimes:jpeg,png,jpg,gif,svg'],
-            'store_nome_loja' => ['nullable', 'max:30'],
-            'store_nome_fantasia' => ['nullable', 'max:30'],
-            'store_cnpj' => ['nullable', 'max:18'],
+            'store_nome_loja' => ['nullable', 'max:255'],
+            'store_nome_fantasia' => ['nullable', 'max:255'],
+            'store_cnpj' => ['nullable', 'max:255'],
             'store_horario' => ['nullable', 'max:255'],
             'store_endereco1' => ['nullable', 'max:255'],
             'store_endereco2' => ['nullable', 'max:255'],

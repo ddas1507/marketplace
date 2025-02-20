@@ -134,9 +134,9 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
 {{--                <img alt="image" src="{{ asset('backend/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">--}}
                 @if(Auth::user()->image != null)
-                    <img src="{{ asset(Auth::user()->image) }}" class="rounded-circle mr-1" title="{{ Auth::user()->name }}" alt="{{ Auth::user()->name }}" style="position: relative;float: left;">
+                    <img src="{{ asset(Auth::user()->image) }}" class="rounded-circle mr-1 " title="{{ Auth::user()->name }}" alt="{{ Auth::user()->name }}" style="position: relative;float: left;">
                 @else
-                    <img src="{{ asset('backend/assets/img/avatar/avatar-1.png') }}" class="rounded-circle"  title="{{ Auth::user()->name }}" alt="{{ Auth::user()->name }}" style="position: relative;float: left;">
+                    <img src="{{ asset('backend/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1"  title="{{ Auth::user()->name }}" alt="{{ Auth::user()->name }}" style="position: relative;float: left;">
                 @endif
                 <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div></a>
             <div class="dropdown-menu dropdown-menu-right">

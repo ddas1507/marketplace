@@ -1,10 +1,14 @@
+@php
+    $general = \App\Models\Backend\System\General::first();
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Maxima Plast</title>
+        <title>{{\App\Models\Backend\System\General::all()->first()->store_nome_loja}}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -25,7 +29,7 @@
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                     <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
                         <div class="flex lg:justify-center lg:col-start-2">
-                            <img src="{{ asset('uploads/maxima-plast-logotipo.png') }}" alt="logo" width="50%" class="m-auto">
+                            <img src="{{ asset($general->store_logo) }}" alt="logo" width="50%" class="m-auto">
                         </div>
                         @if (Route::has('admin.login'))
                             <nav class="-mx-3 flex flex-1 justify-end">
@@ -43,7 +47,7 @@
                     </header>
 
                     <footer class="py-16 text-center text-sm text-black">
-                        Todos os Direitos Reservados:
+                        {{$general->footer_info}}
 {{--                        v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})--}}
                     </footer>
                 </div>

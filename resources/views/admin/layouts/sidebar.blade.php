@@ -1,7 +1,12 @@
+@php
+    $general = \App\Models\Backend\System\General::first();
+@endphp
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ route('admin.dashboard') }}">MAXIMA PLAST</a>
+            <a href="{{ route('admin.dashboard') }}">
+                <img src="{{ $general->store_logo ? asset($general->store_logo) : asset('backend/assets/img/default.png') }}" class="m-auto img-thumbnail" title="" alt="" style="width: 128px; height: auto; object-fit: cover; border: 0px;">
+            </a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{ route('admin.dashboard') }}">MP</a>

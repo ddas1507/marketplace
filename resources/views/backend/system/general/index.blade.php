@@ -25,11 +25,6 @@
 
                                     <div class="row">
 
-                                        <div class="col-md-12 col-12">
-                                            <label>Logo da loja</label>
-                                            <img src="{{ $general->store_logo ? asset($general->store_logo) : asset('backend/assets/img/default.png') }}" class="img-thumbnail" title="" alt="" style="width: 80px; height: auto; object-fit: cover;">
-                                        </div>
-
                                         <div class="form-group col-md-12 col-12">
                                             <label>Alterar Logo</label>
                                             <input type="file" class="form-control" name="store_logo">
@@ -38,6 +33,16 @@
                                         <div class="form-group col-md-12 col-12">
                                             <label>Nome da Loja</label>
                                             <input type="text" class="form-control" name="store_nome_loja" value="{{$general->store_nome_loja}}" required placeholder="Digite o nome da loja">
+                                        </div>
+
+                                        <div class="form-group col-md-12 col-12">
+                                            <label>Nome Fantasia</label>
+                                            <input type="text" class="form-control" name="store_nome_fantasia" value="{{$general->store_nome_fantasia}}" required placeholder="Digite o nome fantasia da loja">
+                                        </div>
+
+                                        <div class="form-group col-md-12 col-12">
+                                            <label>Informações do Rodapé</label>
+                                            <input type="text" class="form-control" name="footer_info" value="{{$general->footer_info}}" required placeholder="Digite as informações do rodapé">
                                         </div>
 
                                     </div>
