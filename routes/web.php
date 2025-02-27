@@ -19,5 +19,3 @@ Route::get('admin/login', [AdminController::class,'login'])->name('admin.login')
 
 // rota para recuperar senha.
 Route::get('admin/forgot-password', [AdminController::class,'forgotPassword'])->name('admin.forgotpassword');
-
-

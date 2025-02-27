@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
+use App\Models\Crud;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Compartilhar a variável cruds com todas as views
+        View::composer('admin.layouts.sidebar', function ($cruds) {
+            $cruds->with('cruds', Crud::all());
+        });
     }
 }
